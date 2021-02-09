@@ -1,6 +1,6 @@
 #!/bin/bash
 export DB_URI=postgresql://$INPUT_FLYWAY_USER:$INPUT_FLYWAY_PASS@$INPUT_FLYWAY_HOST/ebdb
-export SQLALCHEMY_DB_URL=DB_URI
+export SQLALCHEMY_DB_URL=$DB_URI
 export PYTHONPATH=.
 pip install pipenv
 pipenv install --system
