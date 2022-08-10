@@ -2,9 +2,8 @@
 export DB_URI=postgresql://$INPUT_FLYWAY_USER:$INPUT_FLYWAY_PASS@$INPUT_FLYWAY_HOST/ebdb
 export SQLALCHEMY_DB_URL=$DB_URI
 export PYTHONPATH=.
-pip install pipenv
-pipenv install --system
-pipenv install --dev --system
+pip install --upgrade pip
+pip install -r requirements.txt
 export OLD_VERSION="$(alembic current | awk '{print $1}' )"
 export NEW_VERSION="$(alembic heads | awk '{print $1}')"
 echo "$OLD_VERSION ------- $NEW_VERSION"
